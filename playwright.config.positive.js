@@ -17,7 +17,7 @@ import {config as testConfig} from "./config/config.js";
 module.exports = defineConfig({
   testDir: './tests',
   //testMatch: 'tests/**/* spec.js',
-  //grep: /@smoke/,
+  grep: /@positive/,
   timeout: 300_000,
   /* Run tests in files in parallel */
   fullyParallel: false,
@@ -50,15 +50,15 @@ module.exports = defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+    //
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {

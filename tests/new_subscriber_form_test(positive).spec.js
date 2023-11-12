@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe("Sign Up form positive testing", ()=> {
+test.describe("Sign Up form positive testing @positive", ()=> {
     test.beforeEach(async ({page}) => {
         await page.goto('/');
         //click on sign up
