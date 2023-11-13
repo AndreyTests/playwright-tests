@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 const redBorderColor = 'rgb(220, 53, 69)';
 
-test.describe("Sign-up form validation", ()=> {
+test.describe("Sign-up form validation @negative", ()=> {
     test.beforeEach(async ({page}) => {
         await page.goto('/');
         //click on sign up
