@@ -1,29 +1,36 @@
-import BaseComponent from "./BaseComponent.js";
+import {config} from "dotenv";
 
-import {expect} from "@playwright/test";
+export default class BasePage {
 
-export default class BasePage extends BaseComponent {
+    // userNavDropDown = this._page.locator('#userNavDropdown');
+    // logoutBtn = this._page.locator('nav.user-nav_menu.dropdown-menu button', {hasText : 'Logout'});
 
-    userNavDropDown = this._page.locator('#userNavDropdown');
-    logoutBtn = this._page.locator('nav.user-nav_menu.dropdown-menu button', {hasText : 'Logout'});
+    // constructor(page, container) {
+    //     const wrapper = container ?? page.locator('html');
+    //     super(page, wrapper)
+    // }
 
-    constructor(page, container) {
-        const wrapper = container ?? page.locator('html');
-        super(page, wrapper)
+
+    constructor(page) {
+        this.page = page
     }
 
-    async navigate(){
-        await this.open();
-        await this.waitLoaded();
+    async openMainPage(){
+        await this.page.goto(config.use.baseURL);
     }
 
-    async open(){
-        await this._page.goto('/');
-    }
-
-    async logout(){
-        await this.userNavDropDown.click();
-        await this.logoutBtn.click();
-        await expect(this._page).toHaveURL('/');
-    }
+    // async navigate(){
+    //     await this.open();
+    //     await this.waitLoaded();
+    // }
+    //
+    // async open(){
+    //     await this._page.goto('/');
+    // }
+    //
+    // async logout(){
+    //     await this.userNavDropDown.click();
+    //     await this.logoutBtn.click();
+    //     await expect(this._page).toHaveURL('/');
+    // }
 }
