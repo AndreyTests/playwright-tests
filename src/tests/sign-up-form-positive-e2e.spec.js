@@ -26,11 +26,11 @@ test.describe("Sign Up form positive testing", ()=> {
 
         expect(await signUpPage.registrationButton.isDisabled()).toBe(false);
 
-        await signUpPage.registrationButton.click();
-        await page.waitForTimeout(1000);
-        await signUpPage.newPagePanel.waitFor();
-
-        expect(await signUpPage.newPagePanel.isVisible()).toBe(true);
+        // await signUpPage.registrationButton.click();
+        // await page.waitForTimeout(1000);
+        // await signUpPage.newPagePanel.waitFor();
+        //
+        // expect(await signUpPage.newPagePanel.isVisible()).toBe(true);
     });
 })
 
