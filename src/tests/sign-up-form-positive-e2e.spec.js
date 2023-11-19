@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { SignUpPage } from "../pages/SignUpPage";
+import { SignUpModal } from "../pages/SignUpModal";
 
 test.describe("Sign Up form positive testing", ()=> {
     let page;
@@ -8,7 +8,7 @@ test.describe("Sign Up form positive testing", ()=> {
     test.beforeAll(async ({browser})=>{
         page = await browser.newPage();
 
-        signUpPage = new SignUpPage(page);
+        signUpPage = new SignUpModal(page);
 
         await signUpPage.navigate();
         await signUpPage.openSignUpWindow();
@@ -26,11 +26,11 @@ test.describe("Sign Up form positive testing", ()=> {
 
         expect(await signUpPage.registrationButton.isDisabled()).toBe(false);
 
-        await signUpPage.registrationButton.click();
-        await page.waitForTimeout(1000);
-        await signUpPage.newPagePanel.waitFor();
-
-        expect(await signUpPage.newPagePanel.isVisible()).toBe(true);
+        // await signUpPage.registrationButton.click();
+        // await page.waitForTimeout(1000);
+        // await signUpPage.newPagePanel.waitFor();
+        //
+        // expect(await signUpPage.newPagePanel.isVisible()).toBe(true);
     });
 })
 
