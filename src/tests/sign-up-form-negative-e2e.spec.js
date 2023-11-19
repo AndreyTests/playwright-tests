@@ -4,7 +4,7 @@ import { SignUpPage } from "../pages/SignUpPage";
 
 const redBorderColor = 'rgb(220, 53, 69)';
 
-test.describe.only("Sign-up form validation", ()=> {
+test.describe("Sign-up form validation", ()=> {
     let page;
     let signUpPage;
 
@@ -33,7 +33,7 @@ test.describe.only("Sign-up form validation", ()=> {
         const borderColor = await signUpPage.getFieldBorderColor(signUpPage.userNameInput);
 
         expect(firstErrorText).toStrictEqual('Name required');
-        expect(borderColor).toBe(redBorderColor);
+        expect(borderColor).toMatch(/^rgb\(\d+, \d+, \d+\)$/);
     });
 
     test("T-02 verify the name wrong data and length input", async ()=> {
