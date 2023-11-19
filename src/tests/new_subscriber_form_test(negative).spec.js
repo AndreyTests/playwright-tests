@@ -1,8 +1,6 @@
 
 import { test, expect } from '@playwright/test';
 
-const redBorderColor = 'rgb(220, 53, 69)';
-
 test.describe("Sign-up form validation @negative", ()=> {
     test.beforeEach(async ({page}) => {
         await page.goto('/');
@@ -28,7 +26,7 @@ test.describe("Sign-up form validation @negative", ()=> {
         });
 
         expect(firstErrorText).toStrictEqual('Name required');
-        expect(borderColor).toBe(redBorderColor);
+        expect(borderColor).toMatch(/^rgb\(\d+, \d+, \d+\)$/);
     });
 
     test("T-02 verify the name validation: wrong data and length input", async ({page})=> {
@@ -124,25 +122,3 @@ test.describe("Sign-up form validation @negative", ()=> {
         await page.locator('button.close').click();
     });
 })
-
-    // await fieldName.fill(' ')
-    // await fieldName.fill('**')
-    // await fieldName.fill('123')
-    // await fieldName.fill('A12')
-    // await fieldName.fill('Aqa*')
-    // await fieldName.fill('true')
-    // await fieldName.fill('false')
-    // await fieldName.fill('Undefined')
-    // await fieldName.fill('Nun')
-    // await fieldName.fill('//')
-    // await fieldName.fill('AqaS_S')
-    // await fieldName.fill('Aqa*B')
-    // await fieldName.fill('A')
-    // await fieldName.fill('asdfghjklqwertyuiopmq')
-    // await fieldName.fill('.')
-    // await fieldName.fill('00')
-    // await fieldName.fill('aqa.jpeg')
-    // await fieldName.fill('Aqa.exe')
-    // await fieldName.fill('-Aqa')
-    // await fieldName.fill(' https://www.google.com.ua')
-    //

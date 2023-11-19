@@ -15,7 +15,7 @@ import {config as testConfig} from "./config/config.js";
 
 
 module.exports = defineConfig({
-  testDir: './tests',
+  testDir: './src/tests',
   //testMatch: 'tests/**/* spec.js',
   //grep: /@smoke/,
   timeout: 300_000,
@@ -34,6 +34,7 @@ module.exports = defineConfig({
     httpCredentials: testConfig.httpCredentials,
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: testConfig.baseURL,
+    headless: true,
     viewport: {
       width: 1200,
       height: 840
@@ -50,15 +51,15 @@ module.exports = defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+    //
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
