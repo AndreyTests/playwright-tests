@@ -1,25 +1,24 @@
 import BasePage from "./BasePage";
 
-export class SignUpPage extends BasePage {
-
-    userNameInput = this._page.locator('#signupName');
-    userLastNameInput = this._page.locator('#signupLastName');
-    userEmailInput = this._page.locator('#signupEmail');
-    userPasswordInput = this._page.locator('#signupPassword');
-    userReEnterPasswordInput = this._page.locator('#signupRepeatPassword');
-    signUpButton = this._page.locator('button:text("Sign up")');
-
-    registrationButton = this._page.locator('.modal-footer .btn-primary');
-    closeButton = this._page.locator('button.close');
-
-    formTitle = this._page.locator('.modal-title');
-    newPagePanel = this._page.locator('.panel-page');
-
-    // warning panel
-    nameWarningsPanel = this._page.locator('div.invalid-feedback');
-
+export class SignUpModal extends BasePage {
     constructor(page) {
-        super(page);
+        super(page, page.locator('app-signup-modal'));
+        this.userNameInput = this._container.locator('#signupName');
+        this.userLastNameInput = this._container.locator('#signupLastName');
+        this.userEmailInput = this._container.locator('#signupEmail');
+        this.userPasswordInput = this._container.locator('#signupPassword');
+        this.userReEnterPasswordInput = this._container.locator('#signupRepeatPassword');
+        this.signUpButton = this._container.locator('button:text("Sign up")');
+
+        this.registrationButton = this._container.locator('.modal-footer .btn-primary');
+        this.closeButton = this._container.locator('button.close');
+
+        this.formTitle = this._container.locator('.modal-title');
+
+        // warning panel
+        this.nameWarningsPanel = this._container.locator('div.invalid-feedback');
+
+        this.alertMessage = this._container.locator(".alert-danger")
     }
 
     async fillInput(locator, text) {

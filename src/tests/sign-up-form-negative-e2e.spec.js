@@ -1,6 +1,6 @@
 
 import { test, expect } from '@playwright/test';
-import { SignUpPage } from "../pages/SignUpPage";
+import { SignUpModal } from "../pages/SignUpModal";
 
 const redBorderColor = 'rgb(220, 53, 69)';
 
@@ -11,7 +11,7 @@ test.describe("Sign-up form validation", ()=> {
     test.beforeAll(async ({browser})=>{
         page = await browser.newPage();
 
-        signUpPage = new SignUpPage(page);
+        signUpPage = new SignUpModal(page);
 
         await signUpPage.navigate();
     });
